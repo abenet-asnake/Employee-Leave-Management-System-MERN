@@ -10,7 +10,7 @@ const PORT = 5000;
 app.use(router);
 app.use(routers);
 app.use(routes);
-
+/*
 //Employee routes
 app.post('/api/employee/login', (req, res) => {
     res.send('login page');
@@ -67,7 +67,7 @@ app.put('api/tk/employees', (req, res) => {
     res.send('Timekeeper page');
 });
 
-
+*/
 app.listen(PORT, (req, res) => {
     console.log(`Server started on PORT: ${PORT}`);
 });
