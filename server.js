@@ -8,8 +8,8 @@ const app = express();
 const PORT = 5000;
 
 app.use('/api',router);
-app.use(routers);
-app.use(routes);
+app.use('/api',routers);
+app.use('/api',routes);
 
 
 app.listen(PORT, (req, res) => {
