@@ -7,7 +7,7 @@ const app = express();
 
 const PORT = 5000;
 
-app.use(router);
+app.use('/api',router);
 app.use(routers);
 app.use(routes);
 
