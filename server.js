@@ -1,15 +1,15 @@
-const router = require ('./routes/EmployeeRoutes')
-const routers=require ('./routes/HRRoutes');
-const routes = require ('./routes/TKRoutes');
+const EMORoutes = require ('./routes/EmployeeRoutes')
+const HRRoutes=require ('./routes/HRRoutes');
+const TKRoutes = require ('./routes/TKRoutes');
 
 const express = require('express');
 const app = express();
 
 const PORT = 5000;
 
-app.use('/api',router);
-app.use('/api',routers);
-app.use('/api',routes);
+app.use('/api',EMORoutes);
+app.use('/api',HRRoutes);
+app.use('/api',TKRoutes);
 
 
 app.listen(PORT, (req, res) => {

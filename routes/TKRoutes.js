@@ -1,8 +1,10 @@
 const express=require('express');
-const routes=express.Router();
-module.exports = routes;
+const TKRoutes=express.Router();
+
 
 // Time Keeper routes
-routes.put('/tk/employees', (req, res) => {
+TKRoutes.put('/tk/employees', (req, res) => {
     res.send('Timekeeper page');
 });
+
+module.exports = TKRoutes;
