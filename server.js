@@ -1,4 +1,4 @@
-const EMORoutes = require ('./routes/EmployeeRoutes')
+const EMPRoutes = require ('./routes/EmployeeRoutes')
 const HRRoutes=require ('./routes/HRRoutes');
 const TKRoutes = require ('./routes/TKRoutes');
 
@@ -7,7 +7,7 @@ const app = express();
 
 const PORT = 5000;
 
-app.use('/api',EMORoutes);
+app.use('/api',EMPRoutes);
 app.use('/api',HRRoutes);
 app.use('/api',TKRoutes);
 
