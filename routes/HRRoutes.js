@@ -1,6 +1,6 @@
 const express=require('express');
 const HRRoutes=express.Router();
-module.exports=HRRoutes;
+
 
 // HR routers 
 HRRoutes.post('/hr/employees/register', (req, res) => {
@@ -34,3 +34,5 @@ HRRoutes.put('/hr/leave/policy', (req, res) => {
 HRRoutes.patch('/hr/leave/request', (req, res) => {
     res.send('leave patch page');
 });
+
+module.exports=HRRoutes;
