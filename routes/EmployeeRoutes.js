@@ -1,5 +1,7 @@
-//const routes = require ('express-router');
+
 const express = require('express');
+// installing the  express-router module to organized our routes and making server.js faster
+// npm install express-router
 const EMPRoutes = express.Router();
 
 
