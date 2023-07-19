@@ -4,7 +4,15 @@ const HRRoutes=express.Router();
 
 // HR routers 
 HRRoutes.post('/hr/employees/register', (req, res) => {
-    res.send('emp register page');
+  // Mandatory Filed 
+  const {empFullName,basic} = req.body;
+  if (!empFullName || !basic) {
+    throw new Error ('Please provide a Full Name   and basic Salary');
+}
+else {
+    res.send(JSON.stringify(empFullName));
+    console.log(req.body.empFullName);
+}
 });
 
 HRRoutes.get('/hr/employees/:id', (req, res) => {
@@ -23,7 +31,7 @@ HRRoutes.post('/hr/leave/policy', (req, res) => {
     res.send('create policy page');
 });
 
-routers.get('/hr/leave/policy', (req, res) => {
+HRRoutes.get('/hr/leave/policy', (req, res) => {
     res.send('put policy page');
 });
 
