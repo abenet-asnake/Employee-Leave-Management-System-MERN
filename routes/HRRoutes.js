@@ -30,6 +30,7 @@ const employeesData = [
     },
 
   ];
+  // search employee by ID 
 HRRoutes.get('/hr/employees/:id', (req, res) => {
     //res.send('view emp page');
     const employeeId = parseInt(req.params.id);
@@ -42,9 +43,13 @@ HRRoutes.get('/hr/employees/:id', (req, res) => {
     }
 
 });
-
+// Edit employee status
 HRRoutes.put('/hr/employees/register/:id', (req, res) => {
-    res.send('edit emp page');
+   // res.send('edit emp page');
+   const employeeId = parseInt(req.params.id);
+      const employeeIndex = employeesData.findIndex((emp) => emp.id === employeeId);
+      
+      
 });
 
 HRRoutes.delete('/hr/register/:id', (req, res) => {
