@@ -6,12 +6,12 @@ const HRRoutes=express.Router();
 HRRoutes.post('/hr/employees/register', (req, res) => {
   // Mandatory Filed 
   const {empFullName,address,dob,phone,job_tittle,dep,basic} = req.body;
-  if (!empFullName || !basic) {
-    throw new Error ('Please provide a Full Name   and basic Salary');
+  if (!empFullName || !basic || !dob || !phone || !job_tittle || !dep || !address ) {
+    throw new Error ('Please provide a all Filed information');
 }
 else {
     res.send(JSON.stringify(basic));
-    console.log(req.body.empFullName,req.body.basic);
+    console.log(req.body.empFullName);
 }
 });
 
