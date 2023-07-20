@@ -67,9 +67,17 @@ HRRoutes.put('/hr/employees/register/:id', (req, res) => {
       
       
 });
-
+// employee delete from the database
 HRRoutes.delete('/hr/register/:id', (req, res) => {
-    res.send('del emp page');
+    //res.send('del emp page');
+   const employeeId=parseInt(req.params.id);
+   const employeeIndex = employeesData.findIndex((emp) => emp.id === employeeId);
+   if (employeeIndex === -1) {
+    res.status(404).json({ error: 'Employee not found' });
+  } else {
+    employeesData.splice(employeeIndex, 1);
+    res.status(200).json({ message: 'Employee deleted successfully', data: employeesData });
+  }
 });
 
 HRRoutes.post('/hr/leave/policy', (req, res) => {
