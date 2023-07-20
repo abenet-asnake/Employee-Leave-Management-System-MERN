@@ -43,11 +43,27 @@ HRRoutes.get('/hr/employees/:id', (req, res) => {
     }
 
 });
-// Edit employee status
+// Edit employee status while hr register the employee status to update the status
 HRRoutes.put('/hr/employees/register/:id', (req, res) => {
    // res.send('edit emp page');
    const employeeId = parseInt(req.params.id);
-      const employeeIndex = employeesData.findIndex((emp) => emp.id === employeeId);
+   const employeeIndex = employeesData.findIndex((emp) => emp.id === employeeId);
+   if (employeeIndex === -1) {
+    res.status(404).json({ error: 'Employee not found' });
+  } else {
+    // Update the employee data with the new information
+    employeesData[employeeIndex] = {
+        empFullName: 'Abenet Asnake ',
+        address: 'Addis Ababa Summit',
+        dob: '1994-06-15',
+        phone: '0910089001',
+        job_tittle: 'Computer Engineer',
+        dep: 'Engineering',
+        basic:100000,
+    };
+
+    res.status(200).json({ message: 'Employee information updated successfully', data: employeesData[employeeIndex] });
+  }
       
       
 });
