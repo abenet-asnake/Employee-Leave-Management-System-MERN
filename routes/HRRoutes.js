@@ -15,8 +15,32 @@ else {
 }
 });
 
+// testing with postman 
+// data stored in memory for test purposes only in postman tools
+const employeesData = [
+    {
+      id: 1,
+      empFullName: 'Abenet Asnake ',
+      address: 'Addis Ababa Summit',
+      dob: '1994-06-15',
+      phone: '0910089001',
+      job_tittle: 'Computer Engineer',
+      dep: 'Engineering',
+      basic: 60000,
+    },
+
+  ];
 HRRoutes.get('/hr/employees/:id', (req, res) => {
-    res.send('view emp page');
+    //res.send('view emp page');
+    const employeeId = parseInt(req.params.id);
+    const employee = employeesData.find((emp) => emp.id === employeeId);
+    //res.send(employee);
+    if (!employee) {
+        res.status(404).json({ error: 'Employee not found' });
+  } else {
+    res.status(200).json(employee);
+    }
+
 });
 
 HRRoutes.put('/hr/employees/register/:id', (req, res) => {
