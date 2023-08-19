@@ -5,13 +5,14 @@ const HRRoutes=express.Router();
 // HR routers 
 HRRoutes.post('/hr/employees/register', (req, res) => {
   // Mandatory Filed 
-  const {empFullName,address,dob,phone,job_tittle,dep,basic} = req.body;
-  if (!empFullName || !basic || !dob || !phone || !job_tittle || !dep || !address ) {
+  //const {empFullName,address,dob,phone,job_tittle,dep,basic} = req.body;
+  const {empFullName,basic,dob,phone,job_tittle,dep,address} = req.body;
+  if (!empFullName || !basic|| !dob || !phone || !job_tittle || !dep || !address  ) {
     throw new Error ('Please provide a all Filed information');
 }
 else {
-    res.send(JSON.stringify(basic));
-    console.log(req.body.empFullName);
+    res.send(JSON.stringify(empFullName + ' ' + basic));
+    console.log(req.body.empFullName + ' ' + req.body.basic);
 }
 });
 
@@ -81,7 +82,8 @@ HRRoutes.delete('/hr/register/:id', (req, res) => {
 });
 
 HRRoutes.post('/hr/leave/policy', (req, res) => {
-    res.send('create policy page');
+    //res.send('create policy page');
+    
 });
 
 HRRoutes.get('/hr/leave/policy', (req, res) => {
